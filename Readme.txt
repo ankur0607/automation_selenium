@@ -17,6 +17,8 @@ We have focused on Conduit's automation only, so haven't implemented Listeners, 
 
 Also we could use BDD for the automation but as of now it's a plane automation using selenium webdriver with page object model. Test method's name and comments should be elaborative to explain about the test method's behavior.
 
+We have kept the browser's executable and required jar files locally under C:\jars directory.
+
 Thanks,
 Ankur Dubey
 
