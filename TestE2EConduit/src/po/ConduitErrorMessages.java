@@ -16,6 +16,8 @@ public class ConduitErrorMessages {
 	By emailCantBeBlank = By.xpath("//ul[@class=\"error-messages\"]/li[1]");
 	By passwordCantBeBlank = By.xpath("//ul[@class=\"error-messages\"]/li[2]");
 	By usernameCantBeBlank = By.xpath("//ul[@class=\"error-messages\"]/li[3]");
+	By emailAlreadyTaken = By.xpath("//ul[@class=\"error-messages\"]/li[1]");
+	By usernameAlreadyTaken = By.xpath("//ul[@class=\"error-messages\"]/li[2]");
 	
 	public WebElement getInvalidEmailOrPassword() {
 		return driver.findElement(invalidEmailOrPassword);
@@ -31,6 +33,14 @@ public class ConduitErrorMessages {
 	
 	public WebElement getUsernameCantBeBlank() {
 		return driver.findElement(usernameCantBeBlank);
+	}
+	
+	public WebElement getEmailAleadyTaken() {
+		return driver.findElement(emailAlreadyTaken);
+	}
+	
+	public WebElement getUsernameAlreadyTaken() {
+		return driver.findElement(usernameAlreadyTaken);
 	}
 
 }

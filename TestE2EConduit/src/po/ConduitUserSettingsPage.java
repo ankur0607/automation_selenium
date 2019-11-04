@@ -32,7 +32,7 @@ public class ConduitUserSettingsPage {
 	By shortBioAboutYourTextArea = By.xpath("//form/fieldset/fieldset[3]/textarea");
 	By emailInputBox = By.xpath("//form/fieldset/fieldset[4]/input");
 	By newPasswordInputBox = By.xpath("//form/fieldset/fieldset[5]/input");
-	By updateSettingsButton = By.tagName("button");
+	By updateSettingsButton = By.xpath("//button[contains(text(), 'Update Settings')]");//By.tagName("button");
 	By logoutButton = By.cssSelector("button[class$='danger']");
 
 	/**

@@ -3,17 +3,19 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="test.TestConduitUserHomePage">
+      <class name="test.TestConduitUserSettingsPage">
         <methods>
-          <include name="tc05VerifyUserHomePageTest"/>
+          <include name="tc07VerifyUserSettingsPageTest"/>
+          <include name="tc07VerifyEditUserSettingsTest"/>
           <include name="beforeClass"/>
           <include name="afterClass"/>
           <include name="beforeTest"/>
+          <include name="tc07VerifyLogoutUserTest"/>
           <include name="afterSuite"/>
           <include name="afterTest"/>
           <include name="beforeSuite"/>
         </methods>
-      </class> <!-- test.TestConduitUserHomePage -->
+      </class> <!-- test.TestConduitUserSettingsPage -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

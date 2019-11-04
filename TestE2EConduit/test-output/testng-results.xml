@@ -1,49 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="12791" started-at="2019-11-03T17:52:49Z" finished-at="2019-11-03T17:53:02Z">
+  <suite name="Default suite" duration-ms="10699" started-at="2019-11-04T07:29:24Z" finished-at="2019-11-04T07:29:35Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="12791" started-at="2019-11-03T17:52:49Z" finished-at="2019-11-03T17:53:02Z">
-      <class name="test.TestConduitSignUpPage">
-        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:test.TestConduitSignUpPage@6d00a15d]" name="beforeSuite" is-config="true" duration-ms="16" started-at="2019-11-03T17:52:49Z" finished-at="2019-11-03T17:52:49Z">
+    <test name="Default test" duration-ms="10699" started-at="2019-11-04T07:29:24Z" finished-at="2019-11-04T07:29:35Z">
+      <class name="test.TestConduitUserSettingsPage">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:test.TestConduitUserSettingsPage@6d00a15d]" name="beforeSuite" is-config="true" duration-ms="15" started-at="2019-11-04T07:29:24Z" finished-at="2019-11-04T07:29:24Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:test.TestConduitSignUpPage@6d00a15d]" name="beforeTest" is-config="true" duration-ms="0" started-at="2019-11-03T17:52:49Z" finished-at="2019-11-03T17:52:49Z">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:test.TestConduitUserSettingsPage@6d00a15d]" name="beforeTest" is-config="true" duration-ms="0" started-at="2019-11-04T07:29:24Z" finished-at="2019-11-04T07:29:24Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:test.TestConduitSignUpPage@6d00a15d]" name="beforeClass" is-config="true" duration-ms="10611" started-at="2019-11-03T17:52:49Z" finished-at="2019-11-03T17:53:00Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:test.TestConduitUserSettingsPage@6d00a15d]" name="beforeClass" is-config="true" duration-ms="7800" started-at="2019-11-04T07:29:24Z" finished-at="2019-11-04T07:29:32Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="tc06VerifySignUpPageTest()[pri:0, instance:test.TestConduitSignUpPage@6d00a15d]" name="tc06VerifySignUpPageTest" duration-ms="512" started-at="2019-11-03T17:53:00Z" finished-at="2019-11-03T17:53:01Z">
+        <test-method status="PASS" signature="tc07VerifyUserSettingsPageTest()[pri:0, instance:test.TestConduitUserSettingsPage@6d00a15d]" name="tc07VerifyUserSettingsPageTest" duration-ms="2563" started-at="2019-11-04T07:29:32Z" finished-at="2019-11-04T07:29:34Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tc06VerifySignUpPageTest -->
-        <test-method status="PASS" signature="tc07VerifyErrorMessagesWhenSignUp()[pri:0, instance:test.TestConduitSignUpPage@6d00a15d]" name="tc07VerifyErrorMessagesWhenSignUp" duration-ms="1404" started-at="2019-11-03T17:53:01Z" depends-on-methods="test.TestConduitSignUpPage.tc06VerifySignUpPageTest" finished-at="2019-11-03T17:53:02Z">
+        </test-method> <!-- tc07VerifyUserSettingsPageTest -->
+        <test-method status="PASS" signature="tc07VerifyLogoutUserTest()[pri:0, instance:test.TestConduitUserSettingsPage@6d00a15d]" name="tc07VerifyLogoutUserTest" duration-ms="317" started-at="2019-11-04T07:29:34Z" depends-on-methods="test.TestConduitUserSettingsPage.tc07VerifyUserSettingsPageTest" finished-at="2019-11-04T07:29:35Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tc07VerifyErrorMessagesWhenSignUp -->
-        <test-method status="PASS" signature="tc08VerifyNavigationOnSignInPageFromHaveAnAccountLink()[pri:1, instance:test.TestConduitSignUpPage@6d00a15d]" name="tc08VerifyNavigationOnSignInPageFromHaveAnAccountLink" duration-ms="243" started-at="2019-11-03T17:53:02Z" depends-on-methods="test.TestConduitSignUpPage.tc06VerifySignUpPageTest" finished-at="2019-11-03T17:53:02Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tc08VerifyNavigationOnSignInPageFromHaveAnAccountLink -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:test.TestConduitSignUpPage@6d00a15d]" name="afterClass" is-config="true" duration-ms="0" started-at="2019-11-03T17:53:02Z" finished-at="2019-11-03T17:53:02Z">
+        </test-method> <!-- tc07VerifyLogoutUserTest -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:test.TestConduitUserSettingsPage@6d00a15d]" name="afterClass" is-config="true" duration-ms="0" started-at="2019-11-04T07:29:35Z" finished-at="2019-11-04T07:29:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:test.TestConduitSignUpPage@6d00a15d]" name="afterTest" is-config="true" duration-ms="0" started-at="2019-11-03T17:53:02Z" finished-at="2019-11-03T17:53:02Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:test.TestConduitUserSettingsPage@6d00a15d]" name="afterTest" is-config="true" duration-ms="0" started-at="2019-11-04T07:29:35Z" finished-at="2019-11-04T07:29:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="afterSuite()[pri:0, instance:test.TestConduitSignUpPage@6d00a15d]" name="afterSuite" is-config="true" duration-ms="0" started-at="2019-11-03T17:53:02Z" finished-at="2019-11-03T17:53:02Z">
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:test.TestConduitUserSettingsPage@6d00a15d]" name="afterSuite" is-config="true" duration-ms="0" started-at="2019-11-04T07:29:35Z" finished-at="2019-11-04T07:29:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
-      </class> <!-- test.TestConduitSignUpPage -->
+      </class> <!-- test.TestConduitUserSettingsPage -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -8,10 +8,19 @@ import org.testng.asserts.SoftAssert;
 
 import po.ConduitLandingPage;
 
+/**
+* This test class is to test Conduit landing page
+*
+* @author  Ankur Dubey
+* @version 1.0
+* @since   2019-11-03
+*/
+
 public class TestConduitLandingPage extends TestBase{
 	
 	ConduitLandingPage cLandingPageObject;
 	
+	// To verify title of the page
 	@Test
 	public void tc01TitleTest() {
 
@@ -23,6 +32,7 @@ public class TestConduitLandingPage extends TestBase{
 
 	}
 
+	// To verify Page and it's locators/components
 	@Test
 	public void tc02VerifyLandingPageTest() {
 
