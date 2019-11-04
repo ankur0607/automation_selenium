@@ -13,6 +13,10 @@ For every test class, first scenario is covering the objects/components verifica
 
 utils: This package contains utilities, properties and constants classes. Ideally we should create separate packages/folder for properties or constants but for this exercise, We didn't want to increase the size of the project.
 
+We have focused on Conduit's automation only, so haven't implemented Listeners, Logger, Other reports and Data driven approach in this project. We could use listeners for various purposes, Loggers to log information, Extent report, Data driven using Apache POI, testng's Data provider, JSON files and other ways.
+
+Also we could use BDD for the automation but as of now it's a plane automation using selenium webdriver with page object model. Test method's name and comments should be elaborative to explain about the test method's behavior.
+
 Thanks,
 Ankur Dubey
 
