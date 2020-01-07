@@ -1,0 +1,247 @@
+﻿https://www.linuxtechi.com/20-useful-docker-command-examples-linux/
+
+Example:1 Verify Docker Version
+[root@docker ~]# docker --version
+Docker version 17.03.1-ce, build c6d412e
+[root@docker ~]#
+
+Example:2 View system wide Information
+‘docker info‘ command is used to view the system wide information like Docker’s root Directory, OS version, Kernel Version, 
+Docker Version, RAM, CPU and Docker Registry.
+
+Example:3 Search Docker Images in its Registry Server
+With help of ‘docker search‘ command we search the docker container images in registry server from the terminal, Let’s assume 
+I want to search latest debian Docker Images.
+[root@docker ~]# docker search debian
+
+Example:4 Downloading Docker Container Images
+With the help of ‘docker pull’ command we can download docker container images from its registry server or repository.
+Syntax : # docker pull <Name-of-Image>
+Docker pull command always download latest version of image, though we can specify the particular of image. Let’s assume I 
+want to download latest version of Debian Docker image
+
+Downloading Specific OS version Docker Image
+Let’s assume we want to download Ubuntu:14.04 Docker Image
+[root@docker ~]# docker pull ubuntu:14.04
+
+Example:5 List all Downloaded Docker Container Images
+Whenever we download docker images using docker pull command, it save the docker images locally(/var/lib/docker) 
+on your Docker Server. We can list all the downloaded docker images using the ‘docker images‘ command.
+
+Example:6 Launching a container with ‘docker run’ command
+Containers are launched with ‘docker run’ command, let assume I want to launch a container from the debian image.
+[root@docker ~]# docker run -it -p 9000:80 --name=debian_container1 debian
+root@9254e01fadad:/#
+Above Command launch a container with the name “debian_container1” and we also set pat rule in such a way that if any 
+request comes to 9000 port on docker host then that request will be redirected to debian container on 80 port. 
+If you might have noticed that we directly get the console just after executing the command. Type exit to stop / shutdown the 
+container and if want to get out from the container without exiting then type “ctrl+p+q”
+
+Example:7 Launching a Container in detach mode
+We can launch a container in detach mode using –d option in ‘docker run’ command. Example is shown below
+[root@docker ~]# docker run -it -d -p 9001:80 --name=web_container centos:7
+258adf2f71fba82aa04e5f7e9ebba27b8ad87b0439e9bd7d2bcf7e3c40279d54
+[root@docker ~]#
+
+Example:8  Getting Container Console with ‘docker attach’
+In the above example we have provision a container in detach mode, we can have its console using ‘docker attach’ command.
+Syntax: # docker attach {container_name or container_id}
+[root@docker ~]# docker attach web_container
+[root@258adf2f71fb /]#
+
+Example:9 List Containers with ‘docker ps’ command
+We can list all the running containers using ‘docker ps’ command.
+[root@docker ~]# docker ps
+To List all the containers including stop /shutdown, use ‘docker ps -a‘
+
+Example:10 Start, Stop, Restart and Kill Containers
+Just like virtual machines we can start, stop and restart docker containers.
+Use below command to stop a running container
+[root@docker ~]# docker stop db_container1
+db_container1
+[root@docker ~]#
+In Place of container we can also use Container ID
+Use below command to start a container.
+[root@docker ~]# docker start db_container1
+db_container1
+[root@docker ~]#
+Use below command to restart a container.
+[root@docker ~]# docker restart db_container1
+db_container1
+[root@docker ~]#
+Just like Process we can also kill a container, Use below command to kill a container.
+[root@docker ~]# docker kill db_container2
+db_container2
+[root@docker ~]#
+
+Example:11 Delete / Remove a Container
+‘docker rm‘ command is used to remove or delete a container. ‘docker rm’ will work only when docker is stopped / shutdown.
+Syntax: # docker rm {container_name_OR_container_id}
+[root@docker ~]# docker rm db_container2
+db_container2
+[root@docker ~]#
+To remove a running container forcefully, use ‘-f’ option in docker rm command. Example is shown is below
+[root@docker ~]# docker rm -f  web_container2
+web_container2
+[root@docker ~]#
+
+Example: 12 Delete / Remove Docker Container images
+Just like containers we can also delete or remove docker images, ‘docker rmi‘ command is used to delete docker container images.
+Let’s assume i want to delete a docker image ‘Ubuntu:14.04’
+[root@docker ~]# docker rmi ubuntu:14.04
+Untagged: ubuntu:14.04
+Untagged: ubuntu@sha256:b2a55128abd84a99436157c2fc759cf0a525c273722460e6f8f9630747dfe7e8
+Deleted: sha256:2ff3b426bbaafba63cae165e8f6a4955a24a53cdf6d25cce00353e97cda3df71
+[root@docker ~]#
+In above command in place of image name we also use image id
+[root@docker ~]# docker rmi 2ff3b426bbaa
+
+Example:13  Save and Load Docker Container Image to/from a tar file
+Let’s assume we have done some changes in debian image and we want to export it as tar file, this can be done with ‘docker save‘ 
+command, example is shown below
+[root@docker ~]# docker save debian -o mydebian.tar
+[root@docker ~]# ls -l mydebian.tar
+-rw-------. 1 root root 129394176 Jun  1 23:52 mydebian.tar
+[root@docker ~]#
+Load Docker Image from tar file.
+[root@docker ~]# docker load -i mydebian.tar
+Loaded image: debian:latest
+[root@docker ~]#
+Note: These commands become useful when we want to transfer docker image from one Docker Host to another.
+
+Example:14 Export and Import Container to / from tar archive
+Container can be exported to a tar file using the ‘docker export’ command. Syntax is shown below
+# docker export container_name_or_id
+Let’s suppose I want to export web_container to a tar file.
+[root@docker ~]# docker export web_container -o  web_container.tar
+[root@docker ~]#
+Use ‘docker import‘ command to import container from a tar file, examples is shown below.
+[root@docker ~]# docker import web_container.tar
+sha256:254b1bdba79775191d33d221eb547e9caca161363639273103193919db71778d
+[root@docker ~]#
+
+Example:15 Display History of Docker Image
+History of Docker image here means what commands are being executed while building docker images, we can list these commands 
+using ‘docker history‘
+Syntax : # docker history {Image_Name_OR_Image_id}
+
+Example:16 Fetching Logs from the Container
+We can fetch the logs from the containers without login into it, Use ‘docker logs’ command
+Syntax : docker logs {container_name_or_container_id}
+[root@docker ~]# docker logs xibodocker_cms-web_1
+To fetch the live logs use ‘-f’ option in docker logs command
+[root@docker ~]# docker logs -f  xibodocker_cms-web_1
+
+Example: 17 Containers’ resource usage statistics
+To Display CPU, memory, and network I/O usage of all the containers use ‘docker stats‘
+[root@docker ~]# docker stats
+Above command will show live streaming of resource usage statistics of all the Containers.
+Resource usage statistics without live streaming
+[root@docker ~]# docker stats --no-stream
+We can display the running processes of a container with ‘docker top‘ command.
+Syntax: # docker top {Container_Name_OR_ID}
+[root@docker ~]# docker top xibodocker_cms-web_1
+
+Example:18 Display Container IP address
+Container low-level information is displayed with ‘docker inspect‘ command. We can fetch the ip address of a container from 
+command output. Example is shown below
+[root@docker ~]# docker inspect web_container | grep IPAddress | cut -d '"' -f 4
+172.17.0.3
+172.17.0.3
+[root@docker ~]#
+ or
+[root@docker ~]# docker inspect -f "{{.NetworkSettings.IPAddress}}" web_container
+
+Example:19. Build Docker Container Images with Docker file
+With ‘docker build‘ command we can build our own docker image with DockerFile.
+[root@docker ~]# docker build -t mycentos:web1 .
+
+Example: 20 Set Tag / Name to Docker Image
+‘docker tag’ command is used to set tag or name of docker image into a repository.
+Syntax : # docker tag source_image{:tag} target_image{:tag}
+Let’s suppose I want set tag of source image ‘centos:7’ as ‘MyCentOS7:v1’
+[root@docker ~]# docker tag centos:7 mycentos7:v1
+[root@docker ~]#
+Let’s verify the new tag name of docker image
+
+Example: 21
+To copy files from host to container or vice versa
+docker cp D:\Personal\Tutorials\tuto-docs\ad_devops.txt mycentos2:/usr/ankur/
+
+Example: 22
+Creating an image from container
+docker commit <container_name> <new_image_name>
+
+Example: 23
+D:\docker>docker run -it ubuntu bash -exec ls
++ ls
+bin   dev  home  lib64  mnt  proc  run   srv  tmp  var
+boot  etc  lib   media  opt  root  sbin  sys  usr
+
+D:\docker>
+
+
+
+
+https://www.devteam.space/blog/list-of-docker-commands-with-examples/
+https://zeroturnaround.com/rebellabs/docker-commands-and-best-practices-cheat-sheet/
+https://www.linode.com/docs/applications/containers/docker-commands-quick-reference-cheat-sheet/
+https://hackernoon.com/docker-commands-the-ultimate-cheat-sheet-994ac78e2888
+https://medium.com/the-code-review/top-10-docker-commands-you-cant-live-without-54fb6377f481
+https://www.edureka.co/blog/docker-commands/
+https://www.developer.com/design/building-docker-images-from-a-container.html
+https://blog.scalyr.com/2018/09/create-docker-image/
+https://codefresh.io/docker-tutorial/build-docker-image-dockerfiles/
+
+Docker Commands and Best Practices
+
+Before we get into the best practices for using Docker, here’s a quick overview of the vocabulary you should know:
+
+    Layer: a set of read-only files or commands that describe how to set up the underlying system beneath the container. Layers are built on top of each other, and each one represents a change to the filesystem.
+    Image: an immutable layer that forms the base of the container.
+    Container: an instance of the image that can be executed as an independent application. The container has a mutable layer that lies on top of the image and that is separate from the underlying layers.
+    Registry: a storage and content delivery system used for distributing Docker images.
+    Repository: a collection of related Docker images, often different versions of the same application.
+
+With that refresher in mind, here are some quick tips for building applications with Docker:
+
+    Try to keep your images as small as possible. This will make them easier to transfer and faster to load into memory when starting a new container. Don’t include libraries and dependencies unless they’re an absolute requirement for the application to run.
+    If your application needs to be scalable, consider using Docker Swarm, a tool for managing a cluster of nodes as a single virtual system.
+    For maximum efficiency, use Docker in combination with continuous integration and continuous deployment practices. You can use services such as Docker Cloud to automatically build images from source code and push them to a Docker repository.
+
+Below, you’ll find all of the basic Docker commands that you need to start working with containers:
+Developing with Docker Containers:
+
+    docker create [image]: Create a new container from a particular image.
+    docker login: Log into the Docker Hub repository.
+    docker pull [image]: Pull an image from the Docker Hub repository.
+    docker push [username/image]: Push an image to the Docker Hub repository.
+    docker search [term]: Search the Docker Hub repository for a particular term.
+    docker tag [source] [target]: Create a target tag or alias that refers to a source image.
+
+Running Docker Containers
+
+    docker start [container]: Start a particular container.
+    docker stop [container]: Stop a particular container.
+    docker exec -ti [container] [command]: Run a shell command inside a particular container.
+    docker run -ti — image [image] [container] [command]: Create and start a container at the same time, and then run a command inside it.
+    docker run -ti — rm — image [image] [container] [command]: Create and start a container at the same time, run a command inside it, and then remove the container after executing the command.
+    docker pause [container]: Pause all processes running within a particular container.
+
+Using Docker Utilities:
+
+    docker history [image]: Display the history of a particular image.
+    docker images: List all of the images that are currently stored on the system.
+    docker inspect [object]: Display low-level information about a particular Docker object.
+    docker ps: List all of the containers that are currently running.
+    docker version: Display the version of Docker that is currently installed on the system.
+
+Cleaning Up Your Docker Environment:
+
+    docker kill [container]: Kill a particular container.
+    docker kill $(docker ps -q): Kill all containers that are currently running.
+    docker rm [container]: Delete a particular container that is not currently running.
+    docker rm $(docker ps -a -q): Delete all containers that are not currently running.
+
+Thanks.
+Ankur
